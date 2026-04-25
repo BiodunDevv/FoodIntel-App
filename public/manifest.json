@@ -1,0 +1,19 @@
+{
+  "name": "FoodIntel",
+  "short_name": "FoodIntel",
+  "description": "AI-powered food recognition and nutrition tracking.",
+  "start_url": "/dashboard",
+  "scope": "/login",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fff7f7",
+  "theme_color": "#c10007",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
