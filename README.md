@@ -32,7 +32,7 @@ The landing page uses a split hero, proof strip, dark technical section, large s
 
 ## Unsplash Image Usage
 
-Remote imagery is used only for storytelling and atmosphere through `next/image`. Functional UI never depends on images. Unsplash is enabled in [next.config.mjs](/Users/mac/Desktop/FoodIntel%20FullStack/foodintel-app/next.config.mjs:1).
+Remote imagery is used only for storytelling and atmosphere through `next/image`. Functional UI never depends on images. Unsplash is enabled in [next.config.mjs](/Users/mac/Desktop/FoodIntel%20FullStack/app/next.config.mjs:1).
 
 ## Tech Stack
 
@@ -72,7 +72,7 @@ FoodIntel uses the existing `components/ui` contract for buttons, cards, forms, 
 
 ## Global Theme Tokens
 
-The core design system lives in [app/globals.css](/Users/mac/Desktop/FoodIntel%20FullStack/foodintel-app/app/globals.css:1) and stays shadcn-compatible through CSS variables. It includes:
+The core design system lives in [app/globals.css](/Users/mac/Desktop/FoodIntel%20FullStack/app/app/globals.css:1) and stays shadcn-compatible through CSS variables. It includes:
 
 - light and dark OKLCH token sets
 - page background and hero grid utilities
@@ -84,12 +84,12 @@ The core design system lives in [app/globals.css](/Users/mac/Desktop/FoodIntel%2
 
 ## PWA Setup
 
-- Manifest: [public/manifest.json](/Users/mac/Desktop/FoodIntel%20FullStack/foodintel-app/public/manifest.json:1)
-- Icons: [public/icon.svg](/Users/mac/Desktop/FoodIntel%20FullStack/foodintel-app/public/icon.svg:1), [public/icon-maskable.svg](/Users/mac/Desktop/FoodIntel%20FullStack/foodintel-app/public/icon-maskable.svg:1)
-- Offline page: [app/offline/page.tsx](/Users/mac/Desktop/FoodIntel%20FullStack/foodintel-app/app/offline/page.tsx:1)
-- Install prompt: [components/pwa/install-prompt.tsx](/Users/mac/Desktop/FoodIntel%20FullStack/foodintel-app/components/pwa/install-prompt.tsx:1)
-- Offline banner: [components/pwa/offline-banner.tsx](/Users/mac/Desktop/FoodIntel%20FullStack/foodintel-app/components/pwa/offline-banner.tsx:1)
-- Splash screen: [components/pwa/splash-screen.tsx](/Users/mac/Desktop/FoodIntel%20FullStack/foodintel-app/components/pwa/splash-screen.tsx:1)
+- Manifest: [public/manifest.json](/Users/mac/Desktop/FoodIntel%20FullStack/app/public/manifest.json:1)
+- Icons: [public/icon.svg](/Users/mac/Desktop/FoodIntel%20FullStack/app/public/icon.svg:1), [public/icon-maskable.svg](/Users/mac/Desktop/FoodIntel%20FullStack/app/public/icon-maskable.svg:1)
+- Offline page: [app/offline/page.tsx](/Users/mac/Desktop/FoodIntel%20FullStack/app/app/offline/page.tsx:1)
+- Install prompt: [components/pwa/install-prompt.tsx](/Users/mac/Desktop/FoodIntel%20FullStack/app/components/pwa/install-prompt.tsx:1)
+- Offline banner: [components/pwa/offline-banner.tsx](/Users/mac/Desktop/FoodIntel%20FullStack/app/components/pwa/offline-banner.tsx:1)
+- Splash screen: [components/pwa/splash-screen.tsx](/Users/mac/Desktop/FoodIntel%20FullStack/app/components/pwa/splash-screen.tsx:1)
 
 ## Auth Flow
 
@@ -98,11 +98,11 @@ The core design system lives in [app/globals.css](/Users/mac/Desktop/FoodIntel%2
 - Current user: `GET /auth/me`
 - Profile update: `PATCH /users/me`
 
-The token and user summary are stored in Redux and persisted to `localStorage`. Protected routes are wrapped by [components/layout/app-shell.tsx](/Users/mac/Desktop/FoodIntel%20FullStack/foodintel-app/components/layout/app-shell.tsx:1), which redirects unauthenticated users to `/login`.
+The token and user summary are stored in Redux and persisted to `localStorage`. Protected routes are wrapped by [components/layout/app-shell.tsx](/Users/mac/Desktop/FoodIntel%20FullStack/app/components/layout/app-shell.tsx:1), which redirects unauthenticated users to `/login`.
 
 ## Backend API Integration
 
-The shared API client lives in [lib/api/client.ts](/Users/mac/Desktop/FoodIntel%20FullStack/foodintel-app/lib/api/client.ts:1). It:
+The shared API client lives in [lib/api/client.ts](/Users/mac/Desktop/FoodIntel%20FullStack/app/lib/api/client.ts:1). It:
 
 - reads `NEXT_PUBLIC_API_BASE_URL`
 - normalizes wrapped backend responses
@@ -141,15 +141,15 @@ React Query handles:
 
 Static dictionaries for `en`, `fr`, `yo`, `ha`, and `ig` live in `lib/i18n/dictionaries`.
 
-- Hook: [lib/i18n/use-translation.ts](/Users/mac/Desktop/FoodIntel%20FullStack/foodintel-app/lib/i18n/use-translation.ts:1)
-- Switcher: [components/i18n/language-switcher.tsx](/Users/mac/Desktop/FoodIntel%20FullStack/foodintel-app/components/i18n/language-switcher.tsx:1)
-- Optional server route: [app/api/translate/route.ts](/Users/mac/Desktop/FoodIntel%20FullStack/foodintel-app/app/api/translate/route.ts:1)
+- Hook: [lib/i18n/use-translation.ts](/Users/mac/Desktop/FoodIntel%20FullStack/app/lib/i18n/use-translation.ts:1)
+- Switcher: [components/i18n/language-switcher.tsx](/Users/mac/Desktop/FoodIntel%20FullStack/app/components/i18n/language-switcher.tsx:1)
+- Optional server route: [app/api/translate/route.ts](/Users/mac/Desktop/FoodIntel%20FullStack/app/app/api/translate/route.ts:1)
 
 `TRANSLATOR_API_KEY` must remain server-only. Never expose it with `NEXT_PUBLIC_`.
 
 ## Cloudinary Setup
 
-Cloudinary unsigned upload helpers live in [lib/cloudinary/upload.ts](/Users/mac/Desktop/FoodIntel%20FullStack/foodintel-app/lib/cloudinary/upload.ts:1).
+Cloudinary unsigned upload helpers live in [lib/cloudinary/upload.ts](/Users/mac/Desktop/FoodIntel%20FullStack/app/lib/cloudinary/upload.ts:1).
 
 Required public env vars:
 
@@ -185,7 +185,7 @@ Animations are kept subtle and aim to respect reduced motion behavior.
 
 ## Environment Variables
 
-Use [.env.example](/Users/mac/Desktop/FoodIntel%20FullStack/foodintel-app/.env.example:1) as the source of truth.
+Use [.env.example](/Users/mac/Desktop/FoodIntel%20FullStack/app/.env.example:1) as the source of truth.
 
 ```env
 NEXT_PUBLIC_API_BASE_URL=http://localhost:8000/api/v1
