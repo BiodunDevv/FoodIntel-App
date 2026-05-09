@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { ScanLine, BarChart2, Flame } from "lucide-react"
+import { ScanLine, BarChart2, Flame, Settings } from "lucide-react"
 import { useQuery } from "@tanstack/react-query"
 import { useAppSelector } from "@/hooks/use-app-store"
 import { getUserProgress } from "@/features/profile/profile.api"
@@ -80,6 +80,13 @@ export function TopBar() {
             <span className="text-muted-foreground">day</span>
           </Link>
         ) : null}
+        <Link
+          href="/settings"
+          aria-label="Open settings"
+          className="flex size-8 items-center justify-center rounded-md border border-border bg-card text-muted-foreground shadow-sm transition-colors hover:text-foreground"
+        >
+          <Settings className="size-4" />
+        </Link>
         <LanguageSwitcher />
       </div>
     </header>

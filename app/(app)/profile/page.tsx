@@ -26,10 +26,10 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>
 
 const GOALS = [
-  { value: "lose_weight", labelKey: "profile.goal.loseWeight" },
-  { value: "maintain", labelKey: "profile.goal.maintain" },
-  { value: "gain_muscle", labelKey: "profile.goal.gainMuscle" },
-  { value: "eat_healthier", labelKey: "profile.goal.eatHealthier" },
+  { value: "weight_loss", labelKey: "profile.goal.loseWeight" },
+  { value: "maintenance", labelKey: "profile.goal.maintain" },
+  { value: "muscle_gain", labelKey: "profile.goal.gainMuscle" },
+  { value: "general_health", labelKey: "profile.goal.eatHealthier" },
 ]
 
 const ACTIVITY_LEVELS = [
