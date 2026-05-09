@@ -21,6 +21,18 @@ export type WeeklyReport = {
   recommendations: string[]
 }
 
+export function getMonthlyReport(
+  token: string,
+  startDate: string,
+  endDate: string,
+): Promise<WeeklyReport> {
+  return apiClient.get<WeeklyReport>(
+    `/reports/weekly?start_date=${startDate}&end_date=${endDate}`,
+    { token },
+  )
+}
+
+// kept for backwards compat
 export function getWeeklyReport(token: string): Promise<WeeklyReport> {
   return apiClient.get<WeeklyReport>("/reports/weekly", { token })
 }

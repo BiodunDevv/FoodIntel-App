@@ -8,7 +8,7 @@ type Dictionary = Record<string, string>
 
 const cache: Record<string, Dictionary> = {}
 const baseDictionary = enDictionary as Dictionary
-const TRANSLATION_CACHE_VERSION = "azure-only-v1"
+const TRANSLATION_CACHE_VERSION = "azure-v4"
 
 cache.en = baseDictionary
 

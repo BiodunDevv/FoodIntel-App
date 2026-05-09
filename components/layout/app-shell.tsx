@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useSyncExternalStore } from "react"
 import { useRouter } from "next/navigation"
 import { useQuery } from "@tanstack/react-query"
 import { useAppSelector, useAppDispatch } from "@/hooks/use-app-store"
@@ -16,15 +16,27 @@ interface AppShellProps {
   children: React.ReactNode
 }
 
+function subscribeToClientSnapshot() {
+  return () => {}
+}
+
+function getClientSnapshot() {
+  return true
+}
+
+function getServerSnapshot() {
+  return false
+}
+
 export function AppShell({ children }: AppShellProps) {
   const router = useRouter()
   const dispatch = useAppDispatch()
   const { token, hydrated } = useAppSelector((state) => state.auth)
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+  const isClient = useSyncExternalStore(
+    subscribeToClientSnapshot,
+    getClientSnapshot,
+    getServerSnapshot
+  )
 
   const { data: profile, isLoading, isError } = useQuery({
     queryKey: ["currentUser", token],
@@ -52,7 +64,7 @@ export function AppShell({ children }: AppShellProps) {
     }
   }, [dispatch, hydrated, isError, router, token])
 
-  if (!mounted || !hydrated || (hydrated && !token)) {
+  if (!isClient || !hydrated || (hydrated && !token)) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-background">
         <LogoMark size={48} animated className="text-primary" />

@@ -1,10 +1,9 @@
 "use client"
 
 import Link from "next/link"
-import { ScanLine, BarChart2 } from "lucide-react"
+import { ScanLine, BarChart2, Flame } from "lucide-react"
 import { useQuery } from "@tanstack/react-query"
 import { useAppSelector } from "@/hooks/use-app-store"
-import { useTranslation } from "@/lib/i18n/use-translation"
 import { getUserProgress } from "@/features/profile/profile.api"
 import { LanguageSwitcher } from "@/components/i18n/language-switcher"
 import { Logo } from "@/components/logo/logo"
@@ -12,7 +11,6 @@ import { Button } from "@/components/ui/button"
 
 export function TopBar() {
   const { user, token } = useAppSelector((state) => state.auth)
-  const { t } = useTranslation()
   const { data: progress } = useQuery({
     queryKey: ["userProgress", token],
     queryFn: () => getUserProgress(token!),
@@ -71,6 +69,17 @@ export function TopBar() {
 
       {/* Mobile right */}
       <div className="flex items-center gap-2 md:hidden">
+        {progress ? (
+          <Link
+            href="/dashboard"
+            aria-label={`${progress.streak_days} day streak`}
+            className="flex items-center gap-1.5 rounded-md border border-border bg-card px-2.5 py-1.5 text-xs font-medium text-foreground shadow-sm"
+          >
+            <Flame className="size-3.5 text-primary" />
+            <span>{progress.streak_days}</span>
+            <span className="text-muted-foreground">day</span>
+          </Link>
+        ) : null}
         <LanguageSwitcher />
       </div>
     </header>

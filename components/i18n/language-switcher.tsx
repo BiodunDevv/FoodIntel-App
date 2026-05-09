@@ -37,7 +37,7 @@ export function LanguageSwitcher({ compact = false }: LanguageSwitcherProps) {
           </option>
         ))}
       </select>
-      <div className="flex items-center gap-1.5 border border-border/60 bg-white/80 px-2.5 py-1.5 text-xs font-medium text-foreground shadow-sm backdrop-blur-sm select-none pointer-events-none">
+      <div className="flex items-center gap-1.5 border border-border/60 bg-background/80 px-2.5 py-1.5 text-xs font-medium text-foreground shadow-sm backdrop-blur-sm select-none pointer-events-none">
         <span className="text-sm leading-none">{current.flag}</span>
         {!compact && (
           <span className="tracking-tight">{current.label}</span>

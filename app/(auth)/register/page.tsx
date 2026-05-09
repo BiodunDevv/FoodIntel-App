@@ -61,7 +61,7 @@ export default function RegisterPage() {
             {/* Controls row — directly above card */}
             <div className="mb-3 flex items-center justify-between">
               <Link href="/">
-                <Button variant="ghost" size="sm" className=" bg-white/60 px-3 h-8 text-xs">
+                <Button variant="ghost" size="sm" className=" bg-background/60 px-3 h-8 text-xs">
                   <ArrowLeft className="size-3.5" />
                   {t("common.back")}
                 </Button>
@@ -73,7 +73,7 @@ export default function RegisterPage() {
             </div>
 
             {/* Card */}
-            <div className="rounded-2xl border border-border/60 bg-white/90 shadow-[0_16px_48px_rgba(17,24,39,0.10)] backdrop-blur-sm">
+            <div className="rounded-2xl border border-border/60 bg-card/90 shadow-[0_16px_48px_rgba(17,24,39,0.10)] backdrop-blur-sm">
               <div className="px-7 pt-7 pb-2 text-center">
                 <h1 className="text-2xl font-semibold tracking-tight text-foreground">
                   {t("register.title")}
@@ -93,7 +93,7 @@ export default function RegisterPage() {
                       autoComplete="name"
                       placeholder="John Doe"
                       className={cn(
-                        "w-full rounded-lg border bg-white/80 px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/50 transition-shadow",
+                        "w-full rounded-lg border bg-background/80 px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/50 transition-shadow",
                         errors.full_name ? "border-destructive" : "border-border/70"
                       )}
                     />
@@ -112,7 +112,7 @@ export default function RegisterPage() {
                       autoComplete="email"
                       placeholder="you@example.com"
                       className={cn(
-                        "w-full rounded-lg border bg-white/80 px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/50 transition-shadow",
+                        "w-full rounded-lg border bg-background/80 px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/50 transition-shadow",
                         errors.email ? "border-destructive" : "border-border/70"
                       )}
                     />
@@ -132,7 +132,7 @@ export default function RegisterPage() {
                         autoComplete="new-password"
                         placeholder="••••••••"
                         className={cn(
-                          "w-full rounded-lg border bg-white/80 px-3 py-2.5 pr-10 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/50 transition-shadow",
+                          "w-full rounded-lg border bg-background/80 px-3 py-2.5 pr-10 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/50 transition-shadow",
                           errors.password ? "border-destructive" : "border-border/70"
                         )}
                       />

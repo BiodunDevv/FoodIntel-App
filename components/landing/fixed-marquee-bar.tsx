@@ -20,7 +20,7 @@ export function FixedMarqueeBar() {
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-0 z-40 px-2 pb-2">
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-2 md:flex-row md:items-end md:justify-between md:gap-3">
-        <div className="pointer-events-auto marquee-mask flex min-w-0 flex-1 items-center overflow-hidden rounded-lg bg-white/92 px-4 py-2 shadow-[0_10px_30px_rgba(17,24,39,0.08)] backdrop-blur">
+        <div className="pointer-events-auto marquee-mask flex min-w-0 flex-1 items-center overflow-hidden rounded-lg bg-background/92 dark:bg-card/95 px-4 py-2 shadow-[0_10px_30px_rgba(17,24,39,0.08)] backdrop-blur border border-border/40">
           <div className="marquee-track flex items-center gap-8 pr-8 text-xs uppercase tracking-[0.14em] text-muted-foreground">
             {items.map((item, index) => (
               <div key={`${item}-${index}`} className="flex items-center gap-3 whitespace-nowrap">

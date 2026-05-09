@@ -17,6 +17,7 @@ import { FixedMarqueeBar } from "@/components/landing/fixed-marquee-bar"
 import { LandingNavbar } from "@/components/landing/landing-navbar"
 import { Logo } from "@/components/logo/logo"
 import { Button } from "@/components/ui/button"
+import { SUPPORTED_MODEL_FOODS, formatFoodLabel } from "@/lib/supported-foods"
 
 const steps = [
   {
@@ -266,6 +267,39 @@ export default function LandingPage() {
                 </p>
               </div>
             ))}
+          </div>
+        </section>
+
+        <section className="container-shell px-2 py-10 sm:py-12">
+          <div className="grid gap-6 border-y border-border/70 py-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
+            <div className="space-y-3">
+              <p className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">
+                Current model coverage
+              </p>
+              <h2 className="text-3xl font-medium tracking-[-0.04em] text-foreground">
+                FoodIntel recognizes {SUPPORTED_MODEL_FOODS.length} foods right now.
+              </h2>
+              <p className="max-w-md text-sm leading-7 text-muted-foreground">
+                These are the classes available in the model currently deployed
+                in the API. If an image is unclear or outside this list, the
+                app now returns an uncertain result instead of forcing a wrong
+                meal.
+              </p>
+              <p className="max-w-md text-xs leading-6 text-muted-foreground">
+                More Nigerian and African meals will be added as reviewed images
+                are collected and folded back into retraining.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-px overflow-hidden border border-border bg-border sm:grid-cols-3 lg:grid-cols-4">
+              {SUPPORTED_MODEL_FOODS.map((food) => (
+                <div key={food} className="bg-background px-3 py-3">
+                  <p className="text-sm font-medium text-foreground">
+                    {formatFoodLabel(food)}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
