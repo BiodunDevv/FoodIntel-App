@@ -176,7 +176,7 @@ app/
 
 ## Environment Variables
 
-Create `app/.env.local` (copy from `.env.example`):
+Create `foodintel-app/.env.local` (copy from `.env.example`):
 
 ```env
 # FastAPI backend — local or deployed URL
@@ -207,7 +207,7 @@ AZURE_TRANSLATOR_ENDPOINT=https://api.cognitive.microsofttranslator.com
 ### Install and run
 
 ```bash
-cd app
+cd foodintel-app
 npm install
 cp .env.example .env.local   # fill in your values
 npm run dev
@@ -560,7 +560,7 @@ Non-422 errors render a dismissible red card below the button. Raw "Request fail
 ### Vercel (recommended for frontend)
 
 ```bash
-cd app
+cd foodintel-app
 vercel --prod
 ```
 
@@ -580,7 +580,7 @@ Set all environment variables in the Vercel project dashboard:
 Ensure the FastAPI backend's `CORS_ORIGINS` setting includes the Vercel domain:
 
 ```env
-# backend/.env
+# foodintel-backend/.env
 CORS_ORIGINS=["https://your-app.vercel.app", "http://localhost:3000"]
 ```
 

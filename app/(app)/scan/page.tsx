@@ -29,6 +29,8 @@ interface LowConfidenceState {
   runnerUp: string | null
   runnerUpConfidence: number
   threshold: number
+  margin: number
+  marginThreshold: number
 }
 
 export default function ScanPage() {
@@ -81,6 +83,8 @@ export default function ScanPage() {
           runnerUp: err.detail?.runner_up ? err.detail.runner_up.replace(/_/g, " ") : null,
           runnerUpConfidence: Math.round((err.detail?.runner_up_confidence ?? 0) * 100),
           threshold: Math.round((err.detail?.confidence_threshold ?? 0.5) * 100),
+          margin: Math.round((err.detail?.margin ?? 0) * 100),
+          marginThreshold: Math.round((err.detail?.margin_threshold ?? 0.12) * 100),
         })
       } else {
         // Strip generic "Request failed" noise — show a clean message
@@ -217,6 +221,9 @@ export default function ScanPage() {
                 <p className="text-xs leading-relaxed text-amber-700 dark:text-amber-300">
                   {t("scan.unrecognised.desc")}
                 </p>
+                <div className="rounded-xl border border-amber-200 bg-white/55 px-3 py-2 text-xs font-semibold text-amber-800 dark:border-amber-800/50 dark:bg-amber-950/30 dark:text-amber-200">
+                  {t("scan.unrecognised.notSaved")}
+                </div>
                 <div className="flex flex-wrap gap-2 pt-0.5">
                   <div className="flex items-center gap-1.5 rounded-lg bg-amber-100 dark:bg-amber-900/40 px-2.5 py-1">
                     <span className="text-[10px] font-medium uppercase tracking-wide text-amber-600 dark:text-amber-400">
@@ -248,6 +255,14 @@ export default function ScanPage() {
                     </span>
                     <span className="text-xs font-bold text-amber-800 dark:text-amber-200">
                       {lowConfidence.threshold}%
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1.5 rounded-lg bg-amber-100 dark:bg-amber-900/40 px-2.5 py-1">
+                    <span className="text-[10px] font-medium uppercase tracking-wide text-amber-600 dark:text-amber-400">
+                      {t("scan.unrecognised.margin")}
+                    </span>
+                    <span className="text-xs font-bold text-amber-800 dark:text-amber-200">
+                      {lowConfidence.margin}% / {lowConfidence.marginThreshold}%
                     </span>
                   </div>
                 </div>
